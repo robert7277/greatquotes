@@ -27,7 +27,9 @@ function createCards($authors, $quotes) {
 function findAuthor($authors, $author){
     $found_index = null;
     foreach($authors as $person) {
-        if($person[0]==$author[0]&&$person[1]==$author[1]){$found_index = $person[2];}
+        if(strcasecmp($person[0],$author[0])==0&&strcasecmp($person[1],$author[1])==0){
+            $found_index = $person[2];
+        }
     }
     if($found_index==null){return uniqid();}
     else{return $found_index;}
