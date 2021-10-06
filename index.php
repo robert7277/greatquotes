@@ -55,14 +55,14 @@
                 <form action="create.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="author" class="col-form-label">Author:</label>
-                            <input type="text" class="form-control" id="author" name="author" placeholder="Enter quote's author"
+                            <label for="first" class="col-form-label">Author's first name:</label>
+                            <input type="text" class="form-control" id="first" name="first" placeholder="Enter quote's author's first name"
                                 required>
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <label for="author" class="col-form-label">Author:</label>
-                                <input type="text" class="form-control" id="author" name="author" placeholder="Enter quote's author"
+                                <label for="last" class="col-form-label">Author's last name:</label>
+                                <input type="text" class="form-control" id="last" name="last" placeholder="Enter quote's author's last name"
                                        required>
                             </div>
                         <div class="mb-3">
