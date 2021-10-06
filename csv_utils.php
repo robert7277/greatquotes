@@ -2,17 +2,22 @@
 
 function readCSV($file): array
 {
-    $array = [];
-    $csv_file = fopen($file, 'r');
-    while (($line = fgetcsv($csv_file)) != feof($csv_file)){$array[] = $line;}
-    fclose($csv_file);
-    return $array;
+    return array_map('str_getcsv', file($file));
 
 }
-
+function read_some_csv($file, $match): array{
+    $temp_array = readCSV($file);
+    $return_line = null;
+    foreach($temp_array as $temp_line){
+        if($temp_line[count($temp_line)-1] == $match){$return_line = $temp_line;}
+    }
+    return $return_line;
+}
 function write_csv($array, $file){
     $csv_file = fopen($file, 'w');
-    foreach ($array as $line){fputcsv($csv_file, $line);}
+    foreach ($array as $line){
+        fputcsv($csv_file, $line);
+    }
     fclose($csv_file);
 }
 function modify_csv_line($file, $line, $index){

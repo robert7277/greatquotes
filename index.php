@@ -24,7 +24,7 @@
         <div class="container">
             <div class="slider-wrap align-items-center justify-content-between">
                 <div id="card-slider" class="slider">
-                    <?= createCards($authors, $quotes); ?>
+                    <?= createCards('authors.csv', $quotes); ?>
                 </div>
             </div>
         </div>
