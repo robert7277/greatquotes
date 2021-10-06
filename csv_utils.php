@@ -1,23 +1,32 @@
 <?php
-$authors = [];
 
-function readCSV($file, $key1, $key2) {
-    $row = 1;
-    if (($handle = fopen($file, "r")) !== FALSE) {
-        while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
-            $sub_array = array($key1 => $data[0], $key2 => $data[1]);
-            $array[$row] = $sub_array;
-            $row++;
-        }
-        fclose($handle);
-        return $array;
-    }
+function readCSV($file): array
+{
+    $array = [];
+    $csv_file = fopen($file, 'r');
+    while (($line = fgetcsv($csv_file)) != feof($csv_file)){$array[] = $line;}
+    fclose($csv_file);
+    return $array;
+
 }
 
+function write_csv($array, $file){
+    $csv_file = fopen($file, 'w');
+    foreach ($array as $line){fputcsv($csv_file, $line);}
+    fclose($csv_file);
+}
+function modify_csv_line($file, $line, $index){
+    $temp = readCSV($file);
+    $temp[$index] = $line;
+    write_csv($temp, $file);
+}
 
-$authors = readCSV("authors.csv", "first_name", "last_name");
-$quotes = readCSV("quotes.csv", "quote", "author_id");
-$users = readCSV("users.csv", "name", "username");
+function make_blank_line($file, $index){
+    $csv_file = fopen($file, 'w');
+}
+$authors = readCSV("authors.csv");
+$quotes = readCSV("quotes.csv");
+
 
 /*
 echo '<pre>';
