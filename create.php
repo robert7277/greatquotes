@@ -1,7 +1,6 @@
 <?php
     require_once("functions.php");
 
-    $users[] = ['name' => $_POST['name'], 'username' => $_POST['username']];
     $author_index = findAuthor($authors, $_POST['author']);
     $quotes[] = ['quote' => $_POST['quote'], 'author_index' => $author_index];
     if ($author_index > count($authors))

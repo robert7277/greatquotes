@@ -34,5 +34,5 @@ print_r($authors);
 echo '<hr>';
 print_r($quotes);
 echo '<hr>';
-print_r($users);
+echo '</pre>';
 */

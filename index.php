@@ -24,7 +24,7 @@
         <div class="container">
             <div class="slider-wrap align-items-center justify-content-between">
                 <div id="card-slider" class="slider">
-                    <?= createCards($users, $authors, $quotes, $imgs); ?>
+                    <?= createCards($authors, $quotes); ?>
                 </div>
             </div>
         </div>
@@ -55,20 +55,16 @@
                 <form action="create.php" method="POST" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="name" class="col-form-label">Display name:</label>
-                            <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Leave blank to remain anonymous">
-                        </div>
-                        <div class="mb-3">
-                            <label for="username" class="col-form-label">Username:</label>
-                            <input type="text" class="form-control" id="username"
-                                name="username" placeholder="Leave blank to remain anonymous">
-                        </div>
-                        <div class="mb-3">
                             <label for="author" class="col-form-label">Author:</label>
                             <input type="text" class="form-control" id="author" name="author" placeholder="Enter quote's author"
                                 required>
                         </div>
+                        <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="author" class="col-form-label">Author:</label>
+                                <input type="text" class="form-control" id="author" name="author" placeholder="Enter quote's author"
+                                       required>
+                            </div>
                         <div class="mb-3">
                             <label for="quote" class="col-form-label">Quote:</label>
                             <textarea type="text" class="form-control" id="quote"
