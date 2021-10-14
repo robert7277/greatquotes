@@ -1,7 +1,6 @@
 <?php
 
-function readCSV($file): array
-{
+function readCSV($file): array{
     return array_map('str_getcsv', file($file));
 
 }
@@ -20,17 +19,27 @@ function write_csv($array, $file){
     }
     fclose($csv_file);
 }
-function modify_csv_line($file, $line, $index){
+function modify_csv_line($file, $index, $line){
     $temp = readCSV($file);
     $temp[$index] = $line;
     write_csv($temp, $file);
 }
 
 function make_blank_line($file, $index){
-    $csv_file = fopen($file, 'w');
+    $csv_file = fopen($file, 'w+');
 }
-$authors = readCSV("authors.csv");
-$quotes = readCSV("quotes.csv");
+
+function remove_quote($file1, $file2, $index){
+    $temp1= readCSV($file1);
+    $temp2 = readCSV($file2);
+    $temp1 = array_splice($temp1, $index);
+    $temp2 = array_splice($temp2, $index);
+    write_csv($temp1,$file1);
+    write_csv($temp2,$file2);
+}
+$authors = readCSV("/opt/lampp/htdocs/greatquotes/authors.csv");
+$quotes = readCSV("/opt/lampp/htdocs/greatquotes/quotes.csv");
+
 
 
 /*
